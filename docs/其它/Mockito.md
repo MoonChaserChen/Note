@@ -44,3 +44,5 @@ public class CommonTest {
     }
 }
 ```
+
+doCallRealMethod().when(instance).voidFunction();
