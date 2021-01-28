@@ -11,7 +11,7 @@ digraph demo{
     D->A[dir=forward];
 }
 ```
-```viz
+```dot
 digraph demo{
     A->B[dir=both];
     B->C[dir=none];
@@ -50,7 +50,7 @@ digraph G {
 }
 ```
 
-```viz
+```dot
 digraph G {
 
   subgraph cluster_0 {
