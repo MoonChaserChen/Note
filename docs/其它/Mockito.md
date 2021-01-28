@@ -46,3 +46,5 @@ public class CommonTest {
 ```
 
 doCallRealMethod().when(instance).voidFunction();
+
+**Spring Boot集成mockito，@MockBean**
