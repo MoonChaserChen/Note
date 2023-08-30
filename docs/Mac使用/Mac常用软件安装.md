@@ -7,6 +7,18 @@
    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/akira/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
    ```
+3. 查看
+   ```shell
+   brew info zookeeper
+   ```
+4. 安装
+   ```shell
+   brew install zookeeper
+   ```
+5. 开机启动
+   ```shell
+   brew services start zookeeper
+   ```
 # 2. python多版本管理工具pyenv
 1. 安装 `brew install pyenv`
 2. 查看当前安装的pyenv的版本 `pyenv -v`
@@ -205,4 +217,13 @@ To start redis now and restart at login:
   brew services start redis
 Or, if you don't want/need a background service you can just run:
   /opt/homebrew/opt/redis/bin/redis-server /opt/homebrew/etc/redis.conf
+```
+
+# 11. zookeeper
+```shell
+brew install zookeeper
+zkServer start
+zkServer stop
+zkServer status
+zkCli
 ```
