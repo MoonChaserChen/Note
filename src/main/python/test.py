@@ -1,2 +1,6 @@
-
-print(sorted([1, 2, 3, 4, 5], key=lambda x: abs(x - 3)))  # [3, 2, 4, 1, 5]
+res = [list(map(int,input().split())) for i in range(int(input()))]
+# 3
+# 15 8 7
+# 12 20 9
+# 11 7 5
+print(res)
