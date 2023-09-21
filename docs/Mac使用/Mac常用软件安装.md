@@ -1,4 +1,5 @@
-# 1. brew软件包管理
+# Mac常用软件安装
+## 1. brew软件包管理
 可以用于命令行安装软件。
 1. 安装
    直接在命令行运行 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
@@ -19,7 +20,7 @@
    ```shell
    brew services start zookeeper
    ```
-# 2. python多版本管理工具pyenv
+## 2. python多版本管理工具pyenv
 1. 安装 `brew install pyenv`
 2. 查看当前安装的pyenv的版本 `pyenv -v`
 3. 将pyenv配置到全局环境变量中
@@ -48,14 +49,14 @@
    pyenv uninstall 3.8.9
    pyenv rehash # 在进行安装、删除指定python版本后使用，更新版本管理数据库
    ```
-# 3. jdk
+## 3. jdk
 https://jdk.java.net/java-se-ri/11
-# 4. maven
+## 4. maven
 直接在官网下载 `https://maven.apache.org/download.cgi`， 或者在 `https://archive.apache.org/dist/maven/binaries/` 下载历史版本。
-## 配置说明
+### 配置说明
 参见：https://www.jianshu.com/p/06f73e8cbf78
 https://maven.apache.org/guides/mini/guide-multiple-repositories.html
-## 配置示例
+### 配置示例
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -144,16 +145,16 @@ https://maven.apache.org/guides/mini/guide-multiple-repositories.html
    </activeProfiles>
 </settings>
 ```
-# 5. sublime
+## 5. sublime
 官网：https://www.sublimetext.com
-## PackageControl
+### PackageControl
 安装方式1：命令行
 cmd+shift+p => Install Package Control
 
 安装方式2：菜单
 Tools => Install Package Control
-# 6. gradle
-# 7. node多版本管理工具nvm
+## 6. gradle
+## 7. node多版本管理工具nvm
 依赖python
 1. 安装nvm
    ```
@@ -195,7 +196,7 @@ Tools => Install Package Control
    ```
    nvm uninstall v9.5.0
    ```
-# 8. git
+## 8. git
 安装了 Xcode Command Line Tools 就会自带git，需要进行git初始基本配置
 ```
 git config --global user.name "Akira"
@@ -204,11 +205,11 @@ git config --global user.email chin.kou.akira@gmail.com
 git config --global http.https://github.com.proxy socks5://127.0.0.1:7890  # 为github配置代理
 ```
 
-# 9. Mysql&Mysql Workbench
+## 9. Mysql&Mysql Workbench
 https://dev.mysql.com/downloads/mysql/
 https://dev.mysql.com/downloads/workbench/
 
-# 10. Redis
+## 10. Redis
 文档： https://redis.io/docs/  
 安装： https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/  
 
@@ -219,11 +220,25 @@ Or, if you don't want/need a background service you can just run:
   /opt/homebrew/opt/redis/bin/redis-server /opt/homebrew/etc/redis.conf
 ```
 
-# 11. zookeeper
+## 11. zookeeper
 ```shell
 brew install zookeeper
 zkServer start
 zkServer stop
 zkServer status
 zkCli
+```
+## ffmpeg
+用于视频处理。
+```shell
+# 安装
+brew install ffmpeg
+# 下载流媒体文件m38u
+ffmpeg -i "http://host/folder/file.m3u8" -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 file.mp4
+# 下载流媒体文件（脚本）
+ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "$1" -c copy video.mp4
+# 格式转换 mov-->mp4
+ffmpeg -i source.mov -vcodec copy -acodec copy temp.mp4
+# 压缩，修改帧率
+ffmpeg -i temp.mp4 -r 20 des.mp4
 ```
