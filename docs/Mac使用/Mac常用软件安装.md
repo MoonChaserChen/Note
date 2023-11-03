@@ -49,6 +49,10 @@
    pyenv uninstall 3.8.9
    pyenv rehash # 在进行安装、删除指定python版本后使用，更新版本管理数据库
    ```
+9. npm设置国内Registry
+   ```
+   npm config set registry https://registry.npm.taobao.org
+   ```
 ## 3. jdk
 https://jdk.java.net/java-se-ri/11
 ## 4. maven
