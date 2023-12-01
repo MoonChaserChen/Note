@@ -1,0 +1,40 @@
+{
+  "code": 0,
+  "message": "请求成功",
+  "askId": "b6b47cb7cf991d46",
+  "data": {
+    "taskId": "1620022607623565361",
+    "mostPreferentialInstanceId": null,
+    "mostPreferentialPrice": "18.32",
+    "userVouchers": [{
+      "expireDate": "2024-03-01 00:00:00",
+      "expiredDesc": "有效期至:2024年03月01日",
+      "voucherTypeCode": "DISCOUNT_VOUCHER",
+      "title": "商城优惠券8折",
+      "priceInfo": {
+        "actualAmount": "4.58",
+        "discount": "8",
+        "amount": null,
+        "fullAmount": "5"
+      },
+      "templateId": "1626035919033286680",
+      "drawnStatus": 1,
+      "voucherInstanceId": null
+    }, {
+      "expireDate": "2024-03-01 00:00:00",
+      "expiredDesc": "有效期至:2024年03月01日",
+      "voucherTypeCode": "DISCOUNT_VOUCHER",
+      "title": "鱼泡商城8折券",
+      "priceInfo": {
+        "actualAmount": "4.58",
+        "discount": "8",
+        "amount": null,
+        "fullAmount": "5"
+      },
+      "templateId": "1621121513690275843",
+      "drawnStatus": 0,
+      "voucherInstanceId": "6abdb15596d4f33b"
+    }]
+  },
+  "error": false
+}
