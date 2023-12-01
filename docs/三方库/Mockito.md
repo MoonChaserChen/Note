@@ -284,4 +284,102 @@ public class CalculatorTest {
 
 
 ## SpringBoot集成Mockito
-@MockBean
+```java
+@SpringBootTest(classes = Application.class)
+@RunWith(SpringRunner.class)
+@Slf4j
+public class VoucherOperatorRpcServiceTest {
+    @Autowired
+    private VoucherQueryRpcService voucherQueryRpcService;
+
+    @Autowired
+    private VoucherOperatorRpcService voucherOperatorRpcService;
+
+    @MockBean()
+    private YuPaoEventReportCollector yuPaoEventReportCollector;
+
+    @MockBean()
+    private RedDotRpcService redDotRpcService;
+
+    @MockBean()
+    private YuPaoJedis yuPaoJedis;
+
+    @MockBean()
+    private ReachRpcService reachRpcService;
+
+    @MockBean()
+    private BizMessageRpcService bizMessageRpcService;
+
+    @Test
+    @Transactional
+    public void testSendVoucher4Task() {
+        // 固定任务数据
+        Long userId = 1107000000L;
+        String templateId = "1726927135668568122";
+        String taskId = "1726927967315165244";
+
+        // rpc请求Mock
+        mockRpc4TestSendVoucher4Task();
+
+        VoucherTaskSendVoucherReq sendVoucherReq = new VoucherTaskSendVoucherReq();
+        sendVoucherReq.setUserId(userId);
+        sendVoucherReq.setTemplateId(templateId);
+        sendVoucherReq.setTaskId(taskId);
+
+        // 完成任务发券
+        Result<VoucherTaskSendVoucherResp> resp = voucherOperatorRpcService.sendVoucher4Task(sendVoucherReq);
+        assertThat(resp).isNotNull();
+        if (resp.getCode() == 0) {
+            assertThat(resp.getData()).isNotNull();
+            assertThat(resp.getData().getVoucherInstanceId()).isNotBlank();
+            assertThat(resp.getData().getPriceInfo()).isNotNull();
+
+            // 校验发券结果
+            VoucherCountByUserRpcReq req = new VoucherCountByUserRpcReq();
+            req.setUserId(userId);
+            req.setTemplateId(templateId);
+            req.setRecentDays(60);
+            Result<Integer> integerResult = voucherQueryRpcService.countByUser(req);
+            assertThat(integerResult).isNotNull();
+            assertThat(integerResult.getData()).isEqualTo(1);
+        }
+    }
+
+    private void mockRpc4TestSendVoucher4Task() {
+        Mockito.doAnswer(m -> {
+            log.info("Fake invoke yuPaoEventReportCollector#send");
+            return null;
+        }).when(yuPaoEventReportCollector).send(any());
+
+        Mockito.doAnswer(m -> {
+            log.info("Fake invoke redDotRpcServiceApi#incr");
+            return null;
+        }).when(redDotRpcService).incr(any());
+
+        when(yuPaoJedis.lpush(anyString(), anyString())).thenAnswer(m -> {
+            log.info("Fake invoke yuPaoJedis#lpush");
+            return 1L;
+        });
+
+        when(yuPaoJedis.setnx(anyString(), anyString())).thenAnswer(m -> {
+            log.info("Fake invoke yuPaoJedis#setnx");
+            return 1L;
+        });
+
+        when(yuPaoJedis.expire(anyString(), anyInt())).thenAnswer(m -> {
+            log.info("Fake invoke yuPaoJedis#expire");
+            return 1L;
+        });
+
+        Mockito.doAnswer(m -> {
+            log.info("Fake invoke reachRpcService#sendMessage");
+            return null;
+        }).when(reachRpcService).sendMessage(any());
+
+        Mockito.doAnswer(m -> {
+            log.info("Fake invoke bizMessageRpcService#recordMessage");
+            return null;
+        }).when(bizMessageRpcService).recordMessage(any());
+    }
+}
+```
