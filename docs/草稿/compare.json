@@ -1,40 +1,94 @@
 {
-  "code": 0,
-  "message": "请求成功",
-  "askId": "b6b47cb7cf991d46",
+  "traceId": "0a06dd4617016696347338146eea31",
+  "code": 200,
   "data": {
-    "taskId": "1620022607623565361",
-    "mostPreferentialInstanceId": null,
-    "mostPreferentialPrice": "18.32",
-    "userVouchers": [{
-      "expireDate": "2024-03-01 00:00:00",
-      "expiredDesc": "有效期至:2024年03月01日",
-      "voucherTypeCode": "DISCOUNT_VOUCHER",
-      "title": "商城优惠券8折",
-      "priceInfo": {
-        "actualAmount": "4.58",
-        "discount": "8",
-        "amount": null,
-        "fullAmount": "5"
+    "consistencyDataKey": "_isReady",
+    "data": [
+      {
+        "date": 1701187199,
+        "rt": 2.75,
+        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryByInstanceId",
+        "count": 8.0,
+        "rule": "query1"
       },
-      "templateId": "1626035919033286680",
-      "drawnStatus": 1,
-      "voucherInstanceId": null
-    }, {
-      "expireDate": "2024-03-01 00:00:00",
-      "expiredDesc": "有效期至:2024年03月01日",
-      "voucherTypeCode": "DISCOUNT_VOUCHER",
-      "title": "鱼泡商城8折券",
-      "priceInfo": {
-        "actualAmount": "4.58",
-        "discount": "8",
-        "amount": null,
-        "fullAmount": "5"
+      {
+        "date": 1701187199,
+        "rt": 42.27777777777778,
+        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@expire",
+        "count": 18.0,
+        "rule": "query1"
       },
-      "templateId": "1621121513690275843",
-      "drawnStatus": 0,
-      "voucherInstanceId": "6abdb15596d4f33b"
-    }]
+      {
+        "date": 1701187199,
+        "rt": 0.11357060185185186,
+        "rpc": "/health",
+        "count": 103680.0,
+        "rule": "query1"
+      },
+      {
+        "date": 1701187199,
+        "rt": 23.259521833199525,
+        "rpc": "/vouchercenter/v1/voucher/queryCanUseVoucherList",
+        "count": 146978.0,
+        "rule": "query1",
+        "error": 1.0
+      },
+      {
+        "date": 1701187199,
+        "rt": 45.41379310344828,
+        "rpc": "/vouchercenter/v1/voucher/kaobao",
+        "count": 145.0,
+        "rule": "query1"
+      },
+      {
+        "date": 1701187199,
+        "rt": 4.265641025641026,
+        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryInstanceList",
+        "count": 975.0,
+        "rule": "query1"
+      },
+      {
+        "date": 1701187199,
+        "rt": 36.4,
+        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@use",
+        "count": 5.0,
+        "rule": "query1"
+      },
+      {
+        "date": 1701187199,
+        "rt": 42.857142857142854,
+        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@frozen",
+        "count": 7.0,
+        "rule": "query1"
+      },
+      {
+        "date": 1701187199,
+        "rt": 33.38503014082091,
+        "rpc": "/vouchercenter/v1/voucher/hasNewVoucher",
+        "count": 5292822.0,
+        "rule": "query1",
+        "error": 480.0
+      },
+      {
+        "date": 1701187199,
+        "rt": 60.0,
+        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@withdrew",
+        "count": 1.0,
+        "rule": "query1"
+      }
+    ],
+    "debugInfos": {
+      "infos": []
+    },
+    "sqlDiagnose": false,
+    "intervalInSec": 2147483,
+    "success": true,
+    "consistencyQueryStrategy": "NONE",
+    "resultSize": 0,
+    "actualSizeFromDB": 0,
+    "dataSource": "PROMETHEUS",
+    "successful": true
   },
-  "error": false
+  "success": true,
+  "message": "success"
 }

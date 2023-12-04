@@ -284,6 +284,7 @@ public class CalculatorTest {
 
 
 ## SpringBoot集成Mockito
+参考： https://blog.csdn.net/seasonLai/article/details/125118175
 ```java
 @SpringBootTest(classes = Application.class)
 @RunWith(SpringRunner.class)
@@ -383,3 +384,42 @@ public class VoucherOperatorRpcServiceTest {
     }
 }
 ```
+
+### @MockBean原理
+利用 `MockitoPostProcessor` 替换掉原来容器里的Bean。
+```java
+public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAdapter
+        implements BeanClassLoaderAware, BeanFactoryAware, BeanFactoryPostProcessor,
+        Ordered {
+    // ------------------
+    // other code ignored
+    // ------------------
+    private void registerMock(ConfigurableListableBeanFactory beanFactory,
+                              BeanDefinitionRegistry registry, MockDefinition definition, Field field) {
+        RootBeanDefinition beanDefinition = createBeanDefinition(definition);
+        String beanName = getBeanName(beanFactory, registry, definition, beanDefinition);
+        String transformedBeanName = BeanFactoryUtils.transformedBeanName(beanName);
+        if (registry.containsBeanDefinition(transformedBeanName)) {
+            BeanDefinition existing = registry.getBeanDefinition(transformedBeanName);
+            copyBeanDefinitionDetails(existing, beanDefinition);
+            // 从容器里移除原来的Bean
+            registry.removeBeanDefinition(transformedBeanName);
+        }
+        // 向容器里添加Mock的Bean
+        registry.registerBeanDefinition(transformedBeanName, beanDefinition);
+        Object mock = definition.createMock(beanName + " bean");
+        beanFactory.registerSingleton(transformedBeanName, mock);
+        this.mockitoBeans.add(mock);
+        this.beanNameRegistry.put(definition, beanName);
+        if (field != null) {
+            this.fieldRegistry.put(field, beanName);
+        }
+    }
+    // ------------------
+    // other code ignored
+    // ------------------
+}
+```
+
+### @MockBean与@DubboReference
+由于MockitoPostProcessor在执行时，Dubbo的Service并没有初始化，所以无法替换。
