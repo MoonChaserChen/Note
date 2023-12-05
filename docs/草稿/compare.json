@@ -1,79 +1,79 @@
 {
-  "traceId": "0a06dd4617016696347338146eea31",
+  "traceId": "aee24883170167989495212059f851",
   "code": 200,
   "data": {
     "consistencyDataKey": "_isReady",
     "data": [
       {
-        "date": 1701187199,
-        "rt": 2.75,
-        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryByInstanceId",
-        "count": 8.0,
-        "rule": "query1"
-      },
-      {
-        "date": 1701187199,
-        "rt": 42.27777777777778,
-        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@expire",
-        "count": 18.0,
-        "rule": "query1"
-      },
-      {
-        "date": 1701187199,
-        "rt": 0.11357060185185186,
-        "rpc": "/health",
-        "count": 103680.0,
-        "rule": "query1"
-      },
-      {
-        "date": 1701187199,
-        "rt": 23.259521833199525,
-        "rpc": "/vouchercenter/v1/voucher/queryCanUseVoucherList",
-        "count": 146978.0,
-        "rule": "query1",
-        "error": 1.0
-      },
-      {
-        "date": 1701187199,
-        "rt": 45.41379310344828,
+        "date": 1701619199,
+        "rt": 42.006493506493506,
         "rpc": "/vouchercenter/v1/voucher/kaobao",
-        "count": 145.0,
+        "count": 154,
         "rule": "query1"
       },
       {
-        "date": 1701187199,
-        "rt": 4.265641025641026,
-        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryInstanceList",
-        "count": 975.0,
-        "rule": "query1"
-      },
-      {
-        "date": 1701187199,
-        "rt": 36.4,
-        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@use",
-        "count": 5.0,
-        "rule": "query1"
-      },
-      {
-        "date": 1701187199,
-        "rt": 42.857142857142854,
-        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@frozen",
-        "count": 7.0,
-        "rule": "query1"
-      },
-      {
-        "date": 1701187199,
-        "rt": 33.38503014082091,
-        "rpc": "/vouchercenter/v1/voucher/hasNewVoucher",
-        "count": 5292822.0,
-        "rule": "query1",
-        "error": 480.0
-      },
-      {
-        "date": 1701187199,
-        "rt": 60.0,
+        "date": 1701619199,
+        "rt": 54,
         "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@withdrew",
-        "count": 1.0,
+        "count": 2,
+        "rule": "query1"
+      },
+      {
+        "date": 1701619199,
+        "rt": 2.571428571428571,
+        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryByInstanceId",
+        "count": 7,
+        "rule": "query1"
+      },
+      {
+        "date": 1701619199,
+        "rt": 23.398654810761514,
+        "rpc": "/vouchercenter/v1/voucher/queryCanUseVoucherList",
+        "count": 131580,
+        "rule": "query1",
+        "error": 1
+      },
+      {
+        "date": 1701619199,
+        "rt": 33.66666666666667,
+        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@use",
+        "count": 3,
+        "rule": "query1"
+      },
+      {
+        "date": 1701619199,
+        "rt": 33.29602132415422,
+        "rpc": "/vouchercenter/v1/voucher/hasNewVoucher",
+        "count": 4815572,
+        "rule": "query1",
+        "error": 359
+      },
+      {
+        "date": 1701619199,
+        "rt": 31.999999999999993,
+        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@frozen",
+        "count": 5,
+        "rule": "query1"
+      },
+      {
+        "date": 1701619199,
+        "rt": 37.80555555555556,
+        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@expire",
+        "count": 36,
+        "rule": "query1"
+      },
+      {
+        "date": 1701619199,
+        "rt": 0.12890625,
+        "rpc": "/health",
+        "count": 103680,
+        "rule": "query1"
+      },
+      {
+        "date": 1701619199,
+        "rt": 3.4782608695652177,
+        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryInstanceList",
+        "count": 851,
         "rule": "query1"
       }
     ],
