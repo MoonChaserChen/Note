@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ink.akira.note.dao.PetDAO">
+  <resultMap id="BaseResultMap" type="ink.akira.note.po.PetDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="pet_name" jdbcType="VARCHAR" property="petName" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="abc" jdbcType="INTEGER" property="abc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, pet_name, age, abc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pet
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pet
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="ink.akira.note.po.PetDO">
+    insert into pet (id, pet_name, age, 
+      abc)
+    values (#{id,jdbcType=BIGINT}, #{petName,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{abc,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="ink.akira.note.po.PetDO">
+    insert into pet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="petName != null">
+        pet_name,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="abc != null">
+        abc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="petName != null">
+        #{petName,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="abc != null">
+        #{abc,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="ink.akira.note.po.PetDO">
+    update pet
+    <set>
+      <if test="petName != null">
+        pet_name = #{petName,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="abc != null">
+        abc = #{abc,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ink.akira.note.po.PetDO">
+    update pet
+    set pet_name = #{petName,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      abc = #{abc,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
