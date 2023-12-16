@@ -1,94 +1,44 @@
 {
-  "traceId": "aee24883170167989495212059f851",
-  "code": 200,
-  "data": {
-    "consistencyDataKey": "_isReady",
-    "data": [
-      {
-        "date": 1701619199,
-        "rt": 42.006493506493506,
-        "rpc": "/vouchercenter/v1/voucher/kaobao",
-        "count": 154,
-        "rule": "query1"
-      },
-      {
-        "date": 1701619199,
-        "rt": 54,
-        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@withdrew",
-        "count": 2,
-        "rule": "query1"
-      },
-      {
-        "date": 1701619199,
-        "rt": 2.571428571428571,
-        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryByInstanceId",
-        "count": 7,
-        "rule": "query1"
-      },
-      {
-        "date": 1701619199,
-        "rt": 23.398654810761514,
-        "rpc": "/vouchercenter/v1/voucher/queryCanUseVoucherList",
-        "count": 131580,
-        "rule": "query1",
-        "error": 1
-      },
-      {
-        "date": 1701619199,
-        "rt": 33.66666666666667,
-        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@use",
-        "count": 3,
-        "rule": "query1"
-      },
-      {
-        "date": 1701619199,
-        "rt": 33.29602132415422,
-        "rpc": "/vouchercenter/v1/voucher/hasNewVoucher",
-        "count": 4815572,
-        "rule": "query1",
-        "error": 359
-      },
-      {
-        "date": 1701619199,
-        "rt": 31.999999999999993,
-        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@frozen",
-        "count": 5,
-        "rule": "query1"
-      },
-      {
-        "date": 1701619199,
-        "rt": 37.80555555555556,
-        "rpc": "com.yupao.voucher.api.service.VoucherOperatorRpcService@expire",
-        "count": 36,
-        "rule": "query1"
-      },
-      {
-        "date": 1701619199,
-        "rt": 0.12890625,
-        "rpc": "/health",
-        "count": 103680,
-        "rule": "query1"
-      },
-      {
-        "date": 1701619199,
-        "rt": 3.4782608695652177,
-        "rpc": "com.yupao.voucher.api.service.VoucherQueryRpcService@queryInstanceList",
-        "count": 851,
-        "rule": "query1"
-      }
-    ],
-    "debugInfos": {
-      "infos": []
-    },
-    "sqlDiagnose": false,
-    "intervalInSec": 2147483,
-    "success": true,
-    "consistencyQueryStrategy": "NONE",
-    "resultSize": 0,
-    "actualSizeFromDB": 0,
-    "dataSource": "PROMETHEUS",
-    "successful": true
-  },
-  "success": true,
-  "message": "success"
+  "appKey": null,
+  "notifyType": "PAYMENT",
+  "status": "SUCCESS",
+  "channelId": null,
+  "tradeNo": null,
+  "outTradeNo": null,
+  "merchantOrderNo": null,
+  "extra": null,
+  "payAmount": "39",
+  "paySuccessTime": 0,
+  "createTime": 0,
+  "orderNo": "NO1734173669447499821",
+  "idempotentNo": null,
+  "refundNo": null,
+  "outRefundNo": null,
+  "refundPrice": null,
+  "refundTotalPrice": null,
+  "userId": "25114484",
+  "bizType": "BUNDLE_PRODUCT"
 }
+
+{
+  "appKey": null,
+  "notifyType": "REFUND",
+  "status": "SUCCESS",
+  "channelId": null,
+  "tradeNo": null,
+  "outTradeNo": null,
+  "merchantOrderNo": null,
+  "extra": null,
+  "payAmount": "20",
+  "paySuccessTime": 0,
+  "createTime": 0,
+  "orderNo": "NO1734173669476859996",
+  "idempotentNo": null,
+  "refundNo": "refund:NO1734173669476859996",
+  "outRefundNo": null,
+  "refundPrice": "15",
+  "refundTotalPrice": "15",
+  "userId": null,
+  "bizType": null
+}
+

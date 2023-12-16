@@ -214,14 +214,15 @@ https://dev.mysql.com/downloads/mysql/
 https://dev.mysql.com/downloads/workbench/
 
 ## 10. Redis
-文档： https://redis.io/docs/  
-安装： https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/  
-
+- 文档： https://redis.io/docs/  
+- 安装： https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/  
 ```
-To start redis now and restart at login:
-  brew services start redis
-Or, if you don't want/need a background service you can just run:
-  /opt/homebrew/opt/redis/bin/redis-server /opt/homebrew/etc/redis.conf
+brew install redis
+redis-server
+brew services start redis
+brew services info redis
+brew services stop redis
+redis-cli
 ```
 
 ## 11. zookeeper
