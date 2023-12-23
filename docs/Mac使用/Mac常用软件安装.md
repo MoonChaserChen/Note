@@ -12,12 +12,15 @@
    ```shell
    brew info zookeeper
    ```
-4. 安装
+4. 安装&卸载
    ```shell
    brew install zookeeper
+   brew remove zookeeper
    ```
 5. 开机启动
    ```shell
+   # https://thoughtbot.com/blog/starting-and-stopping-background-services-with-homebrew
+   brew services list
    brew services start zookeeper
    ```
 ## 2. python多版本管理工具pyenv
@@ -233,7 +236,21 @@ zkServer stop
 zkServer status
 zkCli
 ```
-## ffmpeg
+3.5之后支持简单的web管理页面,默认端口是8080，可以通过配置文件更改端口zoo.cfg。
+```
+admin.enableServer=false
+admin.serverPort=8888
+```
+支持的命令列表
+```
+#查看支持的命令列表
+http://192.168.10.53:8080/commands
+#查看状态
+http://192.168.10.53:8080/commands/stats
+```
+
+
+## 12. ffmpeg
 用于视频处理。
 ```shell
 # 安装
@@ -246,4 +263,14 @@ ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "$1" -c copy video.
 ffmpeg -i source.mov -vcodec copy -acodec copy temp.mp4
 # 压缩，修改帧率
 ffmpeg -i temp.mp4 -r 20 des.mp4
+```
+
+## 13. nginx
+```shell
+brew install nginx
+brew services start nginx
+# Docroot is: $HOMEBREW_PREFIX/var/www
+# The default port has been set in $HOMEBREW_PREFIX/etc/nginx/nginx.conf to 8080 so that
+# nginx can run without sudo.
+# nginx will load all files in $HOMEBREW_PREFIX/etc/nginx/servers/.
 ```
