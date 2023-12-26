@@ -26,6 +26,33 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.17</version>
         </dependency>
+
+        <!--yupao-->
+        <dependency>
+            <groupId>com.yp.infras</groupId>
+            <artifactId>yp-base</artifactId>
+            <version>1.0.0-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yp.infras</groupId>
+            <artifactId>infras-utils</artifactId>
+            <version>1.1.2-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yp.infras</groupId>
+            <artifactId>yp-common</artifactId>
+            <version>1.0.13-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yp.infras</groupId>
+            <artifactId>yp-bom</artifactId>
+            <version>1.0.3-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yp.infras</groupId>
+            <artifactId>yp-cache</artifactId>
+            <version>1.0.8-RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
