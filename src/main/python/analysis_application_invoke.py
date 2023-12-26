@@ -110,8 +110,7 @@ def execute_and_save(query_data: QueryData):
     with connection:
         with connection.cursor() as cursor:
             sql = "INSERT IGNORE INTO `application_invoke_analysis` (`app_name`, `interface_name`, `request_date`, `response_time`, `request_cnt`, `error_cnt`, `exception_cnt`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-            l = list(map(lambda x: x.to_tuple(), aia_list))
-            cursor.executemany(sql, l)
+            cursor.executemany(sql, list(map(lambda x: x.to_tuple(), aia_list)))
         connection.commit()
 
 
